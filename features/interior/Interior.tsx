@@ -8,6 +8,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { useRef } from "react";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Interior() {
   const interiorSectionRef = useRef<HTMLDivElement>(null);
   const clipImageRef = useRef<HTMLImageElement>(null);
@@ -18,17 +20,26 @@ export default function Interior() {
   const textRef = useRef<HTMLParagraphElement>(null);
 
   useGSAP(() => {
-    if (!firstPositionRef.current || !upcomingPositionRef.current) return;
-    const firstBoundingBox = firstPositionRef.current.getBoundingClientRect();
-    const upcomingBoundingBox =
-      upcomingPositionRef.current.getBoundingClientRect();
-    const targetLeftMove = upcomingBoundingBox.left - firstBoundingBox.left;
-    const targetTopMove = firstBoundingBox.bottom - upcomingBoundingBox.bottom;
+    let targetLeftMove = 0;
+    let targetTopMove = 0;
 
-    ScrollTrigger.create({
+    const updateTargetMove = () => {
+      if (!firstPositionRef.current || !upcomingPositionRef.current) return;
+      const firstBoundingBox = firstPositionRef.current.getBoundingClientRect();
+      const upcomingBoundingBox =
+        upcomingPositionRef.current.getBoundingClientRect();
+      targetLeftMove = upcomingBoundingBox.left - firstBoundingBox.left;
+      targetTopMove = firstBoundingBox.bottom - upcomingBoundingBox.bottom;
+    };
+
+    updateTargetMove();
+
+    const scrollTrigger = ScrollTrigger.create({
       trigger: interiorSectionRef.current,
       start: "top top",
       end: "bottom bottom",
+      invalidateOnRefresh: true,
+      onRefresh: updateTargetMove,
       onUpdate: ({ progress }) => {
         const easeOutProgress = 1 - Math.pow(1 - progress, 2);
         gsap.set(clipImageRef.current, {
@@ -63,6 +74,10 @@ export default function Interior() {
         }
       },
     });
+
+    return () => {
+      scrollTrigger.kill();
+    };
   });
   return (
     <section ref={interiorSectionRef} id="interior" className="h-[300vh] mt-60">

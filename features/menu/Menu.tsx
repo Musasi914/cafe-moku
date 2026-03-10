@@ -6,6 +6,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { useRef } from "react";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Menu() {
   const menuSectionRef = useRef<HTMLDivElement>(null);
   const menuImageRef = useRef<HTMLImageElement>(null);

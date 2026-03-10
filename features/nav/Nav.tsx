@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 const links = [
@@ -8,6 +10,11 @@ const links = [
   {
     label: "Concept",
     href: "/#concept",
+    onClick: () => {
+      window.scrollTo({
+        top: window.innerHeight * 4,
+      });
+    },
   },
   {
     label: "Menu",
@@ -20,6 +27,11 @@ const links = [
   {
     label: "Info",
     href: "/#info",
+    onClick: () => {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+      });
+    },
   },
 ];
 
@@ -32,6 +44,7 @@ export default function Nav() {
             <Link
               href={link.href}
               className="flex items-center gap-2 p-1 text-xs font-mono text-foreground-secondary"
+              onClick={link.onClick}
             >
               <span className="w-4 h-px bg-foreground-secondary"></span>
               <span className="text-nowrap uppercase">{link.label}</span>
