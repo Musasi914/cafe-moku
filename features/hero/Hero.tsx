@@ -128,7 +128,6 @@ export default function Hero() {
           className="absolute object-cover -z-10 scale-105 w-full h-full"
           width={1920}
           height={1078}
-          priority
           ref={bgRef}
         />
         <h1
@@ -141,7 +140,6 @@ export default function Hero() {
             width={280}
             height={165}
             className="block w-auto h-[20vh] drop-shadow-2xl"
-            priority
           />
         </h1>
         <div
@@ -155,7 +153,6 @@ export default function Hero() {
             className="absolute object-cover w-full h-full"
             width={4000}
             height={4000}
-            priority
             sizes="100vw"
           />
         </div>
