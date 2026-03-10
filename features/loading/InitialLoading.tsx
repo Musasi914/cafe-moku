@@ -83,7 +83,7 @@ export default function InitialLoading() {
 
         const exitTl = gsap.timeline({
           onComplete: () => {
-            // setIsVisible(false);
+            setIsVisible(false);
           },
         });
 
