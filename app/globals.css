@@ -12,7 +12,7 @@
 
 @theme inline {
   --font-sans: var(--font-noto-sans-jp);
-  --font-mono: var(--font-montserrat) var(--font-noto-sans-jp);
+  --font-mono: var(--font-montserrat), var(--font-noto-sans-jp);
   --font-title: var(--font-zen-kaku-gothic-new);
 }
 
