@@ -109,7 +109,6 @@ export default function Hero() {
       });
 
       return () => {
-        console.log("Hero unmount");
         st.kill();
       };
     },

@@ -146,7 +146,7 @@ export default function Interior() {
             <div className="h-full py-2 grid items-center md:block">
               <div
                 ref={upcomingPositionRef}
-                className="h-2/3 md:h-full w-full"
+                className="h-2/3 md:h-7/8 w-full"
               ></div>
             </div>
             <div className="flex flex-col justify-end h-full py-2 gap-2">

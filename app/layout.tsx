@@ -6,6 +6,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import Nav from "@/features/nav/Nav";
+import InitialLoading from "@/features/loading/InitialLoading";
 import LenisProvider from "@/lib/LenisProvider";
 
 const zenKakuGothicNew = Zen_Kaku_Gothic_New({
@@ -44,6 +45,7 @@ export default function RootLayout({
       <body
         className={`${zenKakuGothicNew.variable} ${notoSansJP.variable} ${montserrat.variable} antialiased`}
       >
+        <InitialLoading />
         <Nav />
         <LenisProvider>{children}</LenisProvider>
       </body>

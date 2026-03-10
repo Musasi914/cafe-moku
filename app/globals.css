@@ -3,7 +3,7 @@
 @theme {
   --background: #f0e9d8;
   --foreground: #333333;
-  --foreground-secondary: #d1cdc8;
+  --color-foreground-secondary: #c0bbb6;
   --color-wood-dark: #3e2715;
   --color-background: #f0e9d8;
   --text-title: clamp(2.125rem, 1.6849rem + 1.8779vw, 3.375rem);
