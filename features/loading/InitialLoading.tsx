@@ -83,15 +83,15 @@ export default function InitialLoading() {
 
         const exitTl = gsap.timeline({
           onComplete: () => {
-            setIsVisible(false);
+            // setIsVisible(false);
           },
         });
 
         exitTl.to(
           containerRef.current,
           {
-            maskPosition: "0% 0%",
-            WebkitMaskPosition: "0% 0%",
+            maskPosition: "0% -20%",
+            WebkitMaskPosition: "0% -20%",
             duration: 1,
             ease: "power2.out",
           },
@@ -129,7 +129,7 @@ export default function InitialLoading() {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-999 grid place-items-center bg-background mask-[url('/mask-loading.png')] mask-no-repeat mask-size-[100%_600%] mask-[0%_100%]"
+      className="fixed inset-0 z-9999 grid place-items-center bg-background mask-[url('/mask-loading.png')] mask-no-repeat mask-size-[100%_600%] mask-[0%_100%]"
       aria-busy="true"
       aria-live="polite"
     >
