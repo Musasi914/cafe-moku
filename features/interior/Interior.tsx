@@ -81,7 +81,7 @@ export default function Interior() {
   });
   return (
     <section ref={interiorSectionRef} id="interior" className="h-[300vh] mt-60">
-      <div className="h-screen sticky top-0 p-2">
+      <div className="h-screen sticky top-0 p-2 overflow-x-hidden">
         <div ref={firstPositionRef} className="w-full h-full">
           <div
             ref={clipImageRef}
